@@ -6,6 +6,7 @@ const notFound = require("./middlewares/notFound");
 const errorHandler = require("./middlewares/errorHandler");
 
 const staffRouter = require("./routers/staffRouter");
+const servicesRouter = require("./routers/servicesRouter");
 
 app.use(cors({ origin: process.env.CORS_ORIGIN }));
 app.use(express.static("public"));
@@ -15,6 +16,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/staff", staffRouter);
+app.use("/api/services", servicesRouter);
 
 app.use(errorHandler);
 app.use(notFound);
