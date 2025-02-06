@@ -11,13 +11,13 @@ import Homepage from "./pages/Homepage/Homepage"
 import Staff from "./pages/Staff/Staff"
 import Employee from "./pages/Employee/Employee"
 import Services from "./pages/Services/Services"
-import Service from './pages/Service/Service'
 import Contact from "./pages/Contact/Contact"
 import NotFound from "./pages/NotFound/NotFound"
 
 function App() {
 
   const [staff, setStaff] = useState([])
+  const [images, setImages] = useState([]);
 
   useEffect(() => {
     const fetchStaff = async () => {
@@ -33,8 +33,21 @@ function App() {
     fetchStaff();
   }, []);
 
+  useEffect(() => {
+    async function fetchImages() {
+      try {
+        const res = await axios.get("http://localhost:3000/api/images");
+        setImages(res.data);
+        console.log("Fetched images:", res.data);
+      } catch (error) {
+        console.error("Error fetching images:", error);
+      }
+    }
+    fetchImages()
+  }, [])
+
   return (
-    <GlobalContext.Provider value={{ staff }}>
+    <GlobalContext.Provider value={{ staff, images }}>
       <BrowserRouter>
         <Routes>
           <Route element={<Default />}>
@@ -42,7 +55,6 @@ function App() {
             <Route path="/staff" element={<Staff />} />
             <Route path="/staff/:id" element={<Employee />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/services/:id" element={<Service />} />
             <Route path="/contact" element={<Contact />} />
           </Route>
           <Route element={<Blank />}>

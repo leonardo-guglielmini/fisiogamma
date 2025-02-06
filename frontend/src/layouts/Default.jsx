@@ -4,7 +4,7 @@ import Footer from "./Footer/Footer";
 
 export default function Default() {
     return (
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen relative">
             <Header />
             <main className="flex-grow">
                 <Outlet />

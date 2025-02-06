@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+:root{
+    --bg: #F8F9FA;
+    --details: #D4E157;
+    --accent: #A5D6A7;
+    --text: #333333;
+    --details: #E3F2FD;
+    --hover: #03AF27;
+    --blue-accent: #1E88E5;
+}
+
+.swiper-button-next, .swiper-button-prev{
+    color: var(--accent) !important;
+}
+.swiper-pagination-bullet{
+    background-color: var(--accent) !important;
+}
