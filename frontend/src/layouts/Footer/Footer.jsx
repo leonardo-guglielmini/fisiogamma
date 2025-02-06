@@ -16,7 +16,7 @@ export default function Footer() {
                 <div className="flex flex-col items-center">
                     <h4>Centro Autorizzato Tecar</h4>
                     <img src={logo_tecar} alt="logo-tecar" className="max-w-8/12 pb-2" />
-                    <a href="https://humantecar.com/" className="flex gap-2 items-center text-(--text) opacity-75 text-sm">
+                    <a href="https://humantecar.com/" target="_blank" rel="noopener noreferrer" className="flex gap-2 items-center text-(--text) opacity-75 text-sm">
                         <SlInfo />
                         <span className="hover:text-black">Vai al sito ufficiale</span>
                     </a>
@@ -24,7 +24,7 @@ export default function Footer() {
                 <div className="flex flex-col items-center">
                     <h4>Centro Fiduciario Sixtus</h4>
                     <img src={logo_sixtus} alt="logo-sixtus" className="max-w-8/12 pb-2" />
-                    <a href="https://www.sixtusitalia.it/" className="flex gap-2 items-center text-(--text) opacity-75 text-sm">
+                    <a href="https://www.sixtusitalia.it/" target="_blank" rel="noopener noreferrer" className="flex gap-2 items-center text-(--text) opacity-75 text-sm">
                         <SlInfo />
                         <span className="hover:text-black">Vai al sito ufficiale</span>
                     </a>
@@ -43,7 +43,7 @@ export default function Footer() {
                             <a href="mailto:info@fisiogamma.it" className="hover:text-(--hover) hover:underline">info@fisiogamma.it</a>
                         </li>
                         <li className="py-0.5">
-                            <a href="https://www.facebook.com/people/Fisiogamma-Snc/100066640843716/?notif_t=page_fan" target="_blank" className="flex gap-2 items-center text-sm">
+                            <a href="https://www.facebook.com/people/Fisiogamma-Snc/100066640843716/?notif_t=page_fan" target="_blank" rel="noopener noreferrer" className="flex gap-2 items-center text-sm">
                                 <FaFacebook className="text-blue-900" />
                                 <span className="hover:text-blue-900">Fisiogamma s.n.c.</span>
                             </a>

@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { FaPhoneSquareAlt } from "react-icons/fa";
 import { FaFax } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import { FaRegClock } from "react-icons/fa6";
 
 import GlobalContext from "../../contexts/GlobalContext";
 
@@ -32,7 +33,7 @@ export default function Contact() {
     return (
         <div className="bg-(--bg)">
             <section className="bg-red-500 h-70">
-
+                MAPS API DA AGGIUNGERE
             </section>
             <section className={`${containerSize} grid grid-cols-2 py-10`}>
                 <div className="flex flex-col">
@@ -56,6 +57,19 @@ export default function Contact() {
                                 <a href="mailto:info@fisiogamma.it" className="hover:text-(--hover) hover:underline">info@fisiogamma.it</a>
                             </li>
                         </ul>
+                    </div>
+                    <div>
+                        <div className="flex gap-2 items-center text-xl pt-3 pb-1">
+                            <FaRegClock />
+                            <h2>Orari d&apos;apertura</h2>
+                        </div>
+                        <div className="grid grid-cols-[30%_70%] grid-rows-2">
+                            <p>Lun - Ven</p>
+                            <p>8:30-12:30 | 14:30-18:30</p>
+                            <p>Sabato</p>
+                            <p>8:30-12:30</p>
+
+                        </div>
                     </div>
                 </div>
                 <div>

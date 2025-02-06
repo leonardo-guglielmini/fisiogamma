@@ -39,10 +39,11 @@ function App() {
 
   const [staff, setStaff] = useState([])
   const [images, setImages] = useState([]);
+  const [services, setServices] = useState([]);
   const containerSize = "max-w-full sm:max-w-6/12 md:max-w-6/12 lg:max-w-6/12 xl:max-w-8/12 2xl:max-w-8/12 mx-auto";
 
   useEffect(() => {
-    const fetchStaff = async () => {
+    async function fetchStaff() {
       try {
         const res = await axios.get('http://localhost:3000/api/staff');
         setStaff(res.data);
@@ -68,8 +69,21 @@ function App() {
     fetchImages()
   }, [])
 
+  useEffect(() => {
+    async function fetchServices() {
+      try {
+        const res = await axios.get("http://localhost:3000/api/services");
+        setServices(res.data);
+        console.log("Fetched services:", res.data);
+      } catch (error) {
+        console.error("Error fetching images:", error);
+      }
+    }
+    fetchServices()
+  }, [])
+
   return (
-    <GlobalContext.Provider value={{ staff, images, containerSize }}>
+    <GlobalContext.Provider value={{ staff, images, services, containerSize }}>
       <BrowserRouter>
         <AnimatedRoutes />
       </BrowserRouter>
