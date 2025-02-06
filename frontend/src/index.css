@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Inter:wght@400;600&display=swap');
 
 :root{
     --bg: #F8F9FA;
@@ -10,9 +10,20 @@
     --blue-accent: #1E88E5;
 }
 
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+}
+
 .swiper-button-next, .swiper-button-prev{
     color: var(--accent) !important;
+    display: none !important;
 }
 .swiper-pagination-bullet{
-    background-color: var(--accent) !important;
+    background-color: var(--hover) !important;
 }
+
+@import "tailwindcss";

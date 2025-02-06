@@ -1,8 +1,9 @@
 import './App.css'
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom"
 import GlobalContext from "./contexts/GlobalContext"
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { AnimatePresence } from "framer-motion";
 
 import Default from "./layouts/Default"
 import Blank from "./layouts/Blank"
@@ -14,10 +15,31 @@ import Services from "./pages/Services/Services"
 import Contact from "./pages/Contact/Contact"
 import NotFound from "./pages/NotFound/NotFound"
 
+const AnimatedRoutes = () => {
+  const location = useLocation();
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route element={<Default />}>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/staff" element={<Staff />} />
+          <Route path="/staff/:id" element={<Employee />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/contact" element={<Contact />} />
+        </Route>
+        <Route element={<Blank />}>
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </AnimatePresence>
+  )
+}
+
 function App() {
 
   const [staff, setStaff] = useState([])
   const [images, setImages] = useState([]);
+  const containerSize = "max-w-full sm:max-w-6/12 md:max-w-6/12 lg:max-w-6/12 xl:max-w-8/12 2xl:max-w-8/12 mx-auto";
 
   useEffect(() => {
     const fetchStaff = async () => {
@@ -47,20 +69,9 @@ function App() {
   }, [])
 
   return (
-    <GlobalContext.Provider value={{ staff, images }}>
+    <GlobalContext.Provider value={{ staff, images, containerSize }}>
       <BrowserRouter>
-        <Routes>
-          <Route element={<Default />}>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/staff" element={<Staff />} />
-            <Route path="/staff/:id" element={<Employee />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/contact" element={<Contact />} />
-          </Route>
-          <Route element={<Blank />}>
-            <Route path="*" element={<NotFound />} />
-          </Route>
-        </Routes>
+        <AnimatedRoutes />
       </BrowserRouter>
     </GlobalContext.Provider>
   )

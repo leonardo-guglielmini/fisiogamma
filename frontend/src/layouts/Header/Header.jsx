@@ -4,7 +4,7 @@ import logo from "../../assets/logo-fisiogamma.png"
 
 export default function Header() {
     return (
-        <div className="py-5 relative shadow-md">
+        <div className="py-5 relative shadow-md bg-(--bg)">
             <div className="container mx-auto flex justify-between items-center">
                 <img src={logo} alt="logo" />
                 <ul className="flex gap-2 uppercase text-white font-bold">
