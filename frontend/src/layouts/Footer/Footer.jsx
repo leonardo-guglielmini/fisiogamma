@@ -43,7 +43,7 @@ export default function Footer() {
                             <a href="mailto:info@fisiogamma.it" className="hover:text-(--hover) hover:underline">info@fisiogamma.it</a>
                         </li>
                         <li className="py-0.5">
-                            <a href="https://www.facebook.com/people/Fisiogamma-Snc/100066640843716/?notif_t=page_fan" className="flex gap-2 items-center text-sm">
+                            <a href="https://www.facebook.com/people/Fisiogamma-Snc/100066640843716/?notif_t=page_fan" target="_blank" className="flex gap-2 items-center text-sm">
                                 <FaFacebook className="text-blue-900" />
                                 <span className="hover:text-blue-900">Fisiogamma s.n.c.</span>
                             </a>

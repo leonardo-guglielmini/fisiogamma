@@ -26,8 +26,8 @@ export default function Homepage() {
 
         <div className="bg-(--bg) shadow-lg pb-10">
             <section className={`${style.background} shadow-lg`}>
-                <div className={`${containerSize} flex flex-col items-start font-bold text-white pt-10`}>
-                    <h1 className="text-6xl">Fisiogamma, una famiglia di fisioterapisti.</h1>
+                <div className={`${containerSize} flex flex-col items-start font-bold text-white pt-20`}>
+                    <h1 className="text-5xl">Fisiogamma, una famiglia di fisioterapisti.</h1>
                     <p className="text-3xl pt-3">Forse la parola fisioterapia a molte persone dice poco, ma per la famiglia Arretosi è tutto: lavoro, mestiere e, soprattutto, passione.</p>
                     <NavLink to="/contact" className="self-end mt-5 bg-(--bg) text-(--hover) p-3 rounded-lg hover:bg-(--blue-accent) hover:text-white shadow-lg transition duration-500 ease-in-out">
                         <button className="uppercase cursor-pointer">Contatta lo studio</button>
