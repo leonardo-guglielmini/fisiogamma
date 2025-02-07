@@ -22,8 +22,8 @@ import style from './Homepage.module.css'
 export default function Homepage() {
     const { images, services, containerSize } = useContext(GlobalContext);
     return (
-        <div className="bg-(--bg) shadow-lg pb-10">
-            <section className={`${style.background} shadow-lg`}>
+        <div className="shadow-lg pb-10">
+            <section className={`${style.background} shadow-md shadow-(color:--hero)`}>
                 <div className={`${containerSize} flex flex-col items-start font-bold text-white pt-20`}>
                     <h1 className="text-5xl">Fisiogamma, una famiglia di fisioterapisti.</h1>
                     <p className="text-3xl pt-3">Forse la parola fisioterapia a molte persone dice poco, ma per la famiglia Arretosi è tutto: lavoro, mestiere e, soprattutto, passione.</p>
@@ -32,18 +32,18 @@ export default function Homepage() {
                     </Link>
                 </div>
             </section>
-            <section className={`${containerSize} pb-7 grid grid-cols-3 gap-10 -mt-15`}>
-                <a href="https://www.google.com/maps/place/Fisiogamma+S.N.C./@44.8172972,9.9778473,17z/data=!3m1!4b1!4m6!3m5!1s0x47808a7a44a0fbd7:0x399e536b5c9ac381!8m2!3d44.8172934!4d9.9804222!16s%2Fg%2F1tjffpty?entry=ttu&g_ep=EgoyMDI1MDIwMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center pb-3 bg-(--bg) rounded-md shadow-sm hover:-translate-y-2 transition duration:500 ease-in-out cursor-pointer">
+            <section className={`${containerSize} pb-10 grid grid-cols-3 gap-10 -mt-25`}>
+                <a href="https://www.google.com/maps/place/Fisiogamma+S.N.C./@44.8172972,9.9778473,17z/data=!3m1!4b1!4m6!3m5!1s0x47808a7a44a0fbd7:0x399e536b5c9ac381!8m2!3d44.8172934!4d9.9804222!16s%2Fg%2F1tjffpty?entry=ttu&g_ep=EgoyMDI1MDIwMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center pb-3 bg-(--bg) rounded-md shadow-sm hover:-translate-y-10 transition duration:500 ease-in-out cursor-pointer">
                     <img src={stock_1} alt="img-card-1" className="max-w-8/12" />
                     <h3 className="uppercase text-(--hover) font-bold text-2xl pb-2">Il centro</h3>
                     <p className="text-center flex-grow">Scopri un centro altamente attrezzato a <span className="font-bold">Salsomaggiore Terme (Parma)</span></p>
                 </a>
-                <Link to="/staff" className="flex flex-col items-center pb-3 bg-(--bg) rounded-md shadow-sm hover:-translate-y-2 transition duration:500 ease-in-out cursor-pointer">
+                <Link to="/staff" className="flex flex-col items-center pb-3 bg-(--bg) rounded-md shadow-sm hover:-translate-y-10 transition duration:500 ease-in-out cursor-pointer">
                     <img src={stock_2} alt="img-card-2" className="max-w-8/12" />
                     <h3 className="uppercase text-(--hover) font-bold text-2xl pb-2">Lo staff</h3>
                     <p className="text-center flex-grow">Affidati ad uno staff con una esperienza pluri-decennale</p>
                 </Link>
-                <Link to="/services" className="flex flex-col items-center pb-3 bg-(--bg) rounded-md shadow-sm hover:-translate-y-2 transition duration:500 ease-in-out cursor-pointer">
+                <Link to="/services" className="flex flex-col items-center pb-3 bg-(--bg) rounded-md shadow-sm hover:-translate-y-10 transition duration:500 ease-in-out cursor-pointer">
                     <img src={stock_3} alt="img-card-3" className="max-w-8/12" />
                     <h3 className="uppercase text-(--hover) font-bold text-2xl pb-2">Servizi</h3>
                     <p className="text-center flex-grow">Una vasta gamma di servizi per la cura della tua salute</p>
@@ -64,7 +64,7 @@ export default function Homepage() {
                             {services
                                 ? services.slice(0, Math.ceil(services.length / 2)).map((service) => (
                                     <li key={service.id}>
-                                        <Link to="/services" className="py-1 flex gap-3 hover:text-(--hover) hover:translate-x-3 transition duration-700 ease-in-out">
+                                        <Link to={`/services`} className="py-1 flex gap-3 hover:text-(--hover) hover:translate-x-3 transition duration-700 ease-in-out">
                                             <SlArrowRightCircle className="text-(--hover) text-2xl" />
                                             {service.title}
                                         </Link>
@@ -78,7 +78,7 @@ export default function Homepage() {
                             {services
                                 ? services.slice(Math.ceil(services.length / 2)).map((service) => (
                                     <li key={service.id}>
-                                        <Link to="/services" className="py-1 flex gap-3 hover:text-(--hover) hover:translate-x-3 transition duration-700 ease-in-out">
+                                        <Link to={`/services`} className="py-1 flex gap-3 hover:text-(--hover) hover:translate-x-3 transition duration-700 ease-in-out">
                                             <SlArrowRightCircle className="text-(--hover) text-2xl" />
                                             {service.title}
                                         </Link>
@@ -95,15 +95,16 @@ export default function Homepage() {
             <section className={`${containerSize}`}>
                 <Swiper
                     modules={[Autoplay, Pagination, Navigation, EffectFade]}
-                    spaceBetween={50}
                     slidesPerView={1}
-                    navigation={true}
+                    navigation={false}
+                    loop={true}
                     autoplay={{
                         delay: 3000,
                         disableOnInteraction: false
                     }}
                     pagination={{ clickable: true }}
                     effect={'fade'}
+                    className="shadow-md shadow-(color:--accent)"
                 >
                     {images ? images.map((image) =>
                         <SwiperSlide key={image.id}>

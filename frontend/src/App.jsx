@@ -15,6 +15,8 @@ import Services from "./pages/Services/Services"
 import Contact from "./pages/Contact/Contact"
 import NotFound from "./pages/NotFound/NotFound"
 
+import ScrollToTop from "./components/scrollToTop"
+
 const AnimatedRoutes = () => {
   const location = useLocation();
   return (
@@ -23,7 +25,7 @@ const AnimatedRoutes = () => {
         <Route element={<Default />}>
           <Route path="/" element={<Homepage />} />
           <Route path="/staff" element={<Staff />} />
-          <Route path="/staff/:id" element={<Employee />} />
+          <Route path="/staff/:slug" element={<Employee />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
         </Route>
@@ -85,6 +87,7 @@ function App() {
   return (
     <GlobalContext.Provider value={{ staff, images, services, containerSize }}>
       <BrowserRouter>
+        <ScrollToTop />
         <AnimatedRoutes />
       </BrowserRouter>
     </GlobalContext.Provider>

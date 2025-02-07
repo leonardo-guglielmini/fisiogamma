@@ -7,6 +7,7 @@
     --details: #E3F2FD;
     --hover: #03AF27;
     --blue-accent: #1E88E5;
+    --hero: #1da678;
 }
 
 body {
@@ -19,7 +20,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .swiper-button-next, .swiper-button-prev{
     color: var(--accent) !important;
-    display: none !important;
 }
 .swiper-pagination-bullet{
     background-color: var(--hover) !important;

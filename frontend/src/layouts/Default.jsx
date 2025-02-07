@@ -10,11 +10,11 @@ export default function Default() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -50 }}
-            transition={{ duration: 1, ease: "easeOut" }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
         >
-            <div className="flex flex-col min-h-screen relative">
+            <div className="flex flex-col min-h-screen bg-(--bg)">
                 <Header />
-                <main>
+                <main className="flex-grow">
                     <Outlet />
                 </main>
                 <Footer />
