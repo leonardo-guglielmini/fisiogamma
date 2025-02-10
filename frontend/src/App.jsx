@@ -8,12 +8,12 @@ import { AnimatePresence } from "framer-motion";
 import Default from "./layouts/Default"
 import Blank from "./layouts/Blank"
 
-import Homepage from "./pages/Homepage/Homepage"
-import Staff from "./pages/Staff/Staff"
-import Employee from "./pages/Employee/Employee"
-import Services from "./pages/Services/Services"
-import Contact from "./pages/Contact/Contact"
-import NotFound from "./pages/NotFound/NotFound"
+import Homepage from "./pages/Homepage"
+import Staff from "./pages/Staff"
+import Employee from "./pages/Employee"
+import Services from "./pages/Services"
+import Contact from "./pages/Contact"
+import NotFound from "./pages/NotFound"
 
 import ScrollToTop from "./components/scrollToTop"
 

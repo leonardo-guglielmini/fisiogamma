@@ -1,6 +1,7 @@
-import { useState, useContext, } from "react"
-import GlobalContext from "../../contexts/GlobalContext"
+import { useState, useContext } from "react"
 import { motion, AnimatePresence } from "framer-motion";
+
+import GlobalContext from "../contexts/GlobalContext"
 
 export default function Services() {
 
@@ -56,34 +57,34 @@ export default function Services() {
         exit: { opacity: 0, y: 20, transition: { duration: 0.2 } }
     }
 
-    const { services, containerSize } = useContext(GlobalContext);
+    const { services } = useContext(GlobalContext);
     return (
-        <div className={`${containerSize} flex flex-col gap-5 py-10`}>
-            <div className="flex justify-end gap-5">
+        <div className={`container mx-auto flex flex-col gap-5 py-10`}>
+            <div className="justify-end gap-5 hidden xl:flex">
                 <button onClick={() => showManuMedica()} className={`${(manuMedica && !all) ? "bg-(--hover)" : "bg-(--accent)"} py-3 px-5 text-white bg-(--accent) font-bold rounded-md shadow-lg cursor-pointer transition duration-500 ease-in-out`}>Manu Medica</button>
                 <button onClick={() => showMedicinaFisica()} className={`${(medicinaFisica && !all) ? "bg-(--hover)" : "bg-(--accent)"} py-3 px-5 text-white bg-(--accent) font-bold rounded-md shadow-lg cursor-pointer transition duration-500 ease-in-out`}>Medicina Fisica</button>
                 <button onClick={() => showRiabilitazione()} className={`${(riabilitazione && !all) ? "bg-(--hover)" : "bg-(--accent)"} py-3 px-5 text-white bg-(--accent) font-bold rounded-md shadow-lg cursor-pointer transition duration-500 ease-in-out`}>Riabilitazione</button>
                 <button onClick={() => showVisiteSpecialistiche()} className={`${(visiteSpecialistiche && !all) ? "bg-(--hover)" : "bg-(--accent)"} py-3 px-5 text-white font-bold rounded-md shadow-lg cursor-pointer transition duration-500 ease-in-out`}>Visite Specialistiche</button>
                 <button onClick={() => showAll()} className={`${all ? "bg-(--hover)" : "bg-(--accent)"} py-3 px-5 text-white font-bold rounded-md shadow-lg cursor-pointer transition duration-500 ease-in-out`}>Mostra tutte</button>
             </div>
-            <div className="border-r border-(--hover)">
+            <div className="xl:border-r border-(--hover)">
                 <AnimatePresence>
                     {(manuMedica || all) && (
                         <motion.div
-                            className="p-3 w-10/12"
+                            className="p-3"
                             variants={fadeInOut}
                             initial="hidden"
                             animate="visible"
                             exit="exit"
                         >
-                            <div className={`p-3 ${all && "border-b border-(--hover)"} w-10/12`}>
+                            <div className={`p-3 ${all && "border-b border-(--hover)"}`}>
                                 <h1 className="text-3xl text-(--hover) font-bold">Manu Medica</h1>
                                 {services.filter((service) => service.category === "manuMedica").map((service) => (
-                                    <div key={service.id} className="my-5 p-3 flex justify-between gap-10 items-start">
+                                    <div key={service.id} className="my-5 p-3 flex flex-col xl:flex-row justify-between lg:gap-10 items-center xl:items-start">
                                         <img src={`http://localhost:3000${service.image}`} alt="service_image" className="border-1 border-(--hover) rounded-md" />
                                         <div>
                                             <h2 className="text-2xl">{service.title}</h2>
-                                            <p className="text-(--text) opacity-75">{service.description}</p>
+                                            <p className="text-(--text) opacity-75 hidden md:block">{service.description}</p>
                                         </div>
                                     </div>
                                 ))}
@@ -94,19 +95,19 @@ export default function Services() {
                 <AnimatePresence>
                     {(medicinaFisica || all) && (
                         <motion.div
-                            className="p-3 w-10/12"
+                            className="p-3"
                             variants={fadeInOut}
                             initial="hidden"
                             animate="visible"
                             exit="exit"
-                        ><div className={`p-3 ${all && "border-b border-(--hover)"} w-10/12`}>
+                        ><div className={`p-3 ${all && "border-b border-(--hover)"}`}>
                                 <h1 className="text-3xl text-(--hover) font-bold">Medicina Fisica</h1>
                                 {services.filter((service) => service.category === "medicinaFisica").map((service) => (
-                                    <div key={service.id} className="my-5 p-3 flex justify-between gap-10 items-start h-full">
+                                    <div key={service.id} className="my-5 p-3 flex flex-col xl:flex-row justify-between lg:gap-10 items-center xl:items-start">
                                         <img src={`http://localhost:3000${service.image}`} alt="service_image" className="border-1 border-(--hover) rounded-md" />
                                         <div>
                                             <h2 className="text-2xl">{service.title}</h2>
-                                            <p className="text-(--text) opacity-75">{service.description}</p>
+                                            <p className="text-(--text) opacity-75 hidden md:block">{service.description}</p>
                                         </div>
                                     </div>
                                 ))}
@@ -116,20 +117,20 @@ export default function Services() {
                 <AnimatePresence>
                     {(riabilitazione || all) && (
                         <motion.div
-                            className="p-3 w-10/12"
+                            className="p-3"
                             variants={fadeInOut}
                             initial="hidden"
                             animate="visible"
                             exit="exit"
                         >
-                            <div className={`p-3 ${all && "border-b border-(--hover)"} w-10/12`}>
+                            <div className={`p-3 ${all && "border-b border-(--hover)"}`}>
                                 <h1 className="text-3xl text-(--hover) font-bold">Riabilitazione</h1>
                                 {services.filter((service) => service.category === "riabilitazione").map((service) => (
-                                    <div key={service.id} className="my-5 p-3 flex justify-between gap-10 items-start h-full">
+                                    <div key={service.id} className="my-5 p-3 flex flex-col xl:flex-row justify-between lg:gap-10 items-center xl:items-start">
                                         <img src={`http://localhost:3000${service.image}`} alt="service_image" className="border-1 border-(--hover) rounded-md" />
                                         <div>
                                             <h2 className="text-2xl">{service.title}</h2>
-                                            <p className="text-(--text) opacity-75">{service.description}</p>
+                                            <p className="text-(--text) opacity-75 hidden md:block">{service.description}</p>
                                         </div>
                                     </div>
                                 ))}
@@ -139,27 +140,27 @@ export default function Services() {
                 <AnimatePresence>
                     {(visiteSpecialistiche || all) && (
                         <motion.div
-                            className="p-3 w-10/12"
+                            className="p-3"
                             variants={fadeInOut}
                             initial="hidden"
                             animate="visible"
                             exit="exit"
                         >
-                            <div className="p-3 w-10/12">
+                            <div className="p-3">
                                 <h1 className="text-3xl text-(--hover) font-bold">Visite Specialistiche</h1>
                                 {services.filter((service) => service.category === "visitaSpecialistica").map((service) => (
-                                    <div key={service.id} className="my-5 p-3 flex justify-between gap-10 items-start">
+                                    <div key={service.id} className="my-5 p-3 flex flex-col xl:flex-row justify-between lg:gap-10 items-center xl:items-start">
                                         <img src={`http://localhost:3000${service.image}`} alt="service_image" className="border-1 border-(--hover) rounded-md" />
                                         <div>
                                             <h2 className="text-2xl">{service.title}</h2>
-                                            <p className="text-(--text) opacity-75">{service.description}</p>
+                                            <p className="text-(--text) opacity-75 hidden md:block">{service.description}</p>
                                         </div>
                                     </div>
                                 ))}
                             </div>
                         </motion.div>)}
                 </AnimatePresence>
-                {!manuMedica && !medicinaFisica && !riabilitazione && !visiteSpecialistiche && <p className="text-xl text-(--accent)">Nessun servizio disponibile</p>}
+                {!manuMedica && !medicinaFisica && !riabilitazione && !visiteSpecialistiche && !all && <p className="text-xl text-(--accent)">Nessun servizio disponibile</p>}
             </div>
         </div>
     )

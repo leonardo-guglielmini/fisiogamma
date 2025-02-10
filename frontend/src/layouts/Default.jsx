@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom";
 import { motion } from "framer-motion";
 
-import Header from "./Header/Header";
-import Footer from "./Footer/Footer";
+import Header from "./Header";
+import Footer from "./Footer";
 
 export default function Default() {
     return (

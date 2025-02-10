@@ -1,10 +1,8 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { FaPhoneSquareAlt } from "react-icons/fa";
 import { FaFax } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { FaRegClock } from "react-icons/fa6";
-
-import GlobalContext from "../../contexts/GlobalContext";
 
 const baseFormData = {
     name: "",
@@ -14,7 +12,6 @@ const baseFormData = {
 }
 
 export default function Contact() {
-    const { containerSize } = useContext(GlobalContext);
     const [formData, setFormData] = useState(baseFormData);
 
     const handleDataChange = (e) => {
@@ -32,10 +29,10 @@ export default function Contact() {
     }
     return (
         <div>
-            <section className={`${containerSize} h-100 pt-5`}>
+            <section className={`container mx-auto h-100 pt-5`}>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2830.2149713501353!2d9.98049!3d44.817184999999995!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x399e536b5c9ac381!2sFisiogamma+S.N.C.!5e0!3m2!1sit!2sit!4v1397904001829" className="w-full h-full"></iframe>
             </section>
-            <section className={`${containerSize} grid grid-cols-2 py-10`}>
+            <section className={`container mx-auto grid grid-row-2 md:grid-cols-2 gap-5 py-10`}>
                 <div className="flex flex-col">
                     <div className="pb-3">
                         <h1 className="text-4xl">Fisiogamma S.n.c.</h1>

@@ -1,5 +1,5 @@
-import logo_tecar from "../../assets/logo-tecar.png";
-import logo_sixtus from "../../assets/logo-sixtus.png";
+import logo_tecar from "../assets/logo-tecar.png";
+import logo_sixtus from "../assets/logo-sixtus.png";
 
 
 import { SlInfo } from "react-icons/sl";
@@ -12,7 +12,7 @@ export default function Footer() {
     return (
         <div className="bg-(--bg) pb-5">
             <hr className="max-w-11/12 mx-auto text-(--hover) pt-5" />
-            <div className="grid grid-cols-3 text-center text-(--hover) font-bold text-xl">
+            <div className="container mx-auto grid grid-rows-3 gap-3 md:grid-rows-none md:grid-cols-3 text-center text-(--hover) font-bold text-xl">
                 <div className="flex flex-col items-center">
                     <h4>Centro Autorizzato Tecar</h4>
                     <img src={logo_tecar} alt="logo-tecar" className="max-w-8/12 pb-2" />
@@ -54,7 +54,7 @@ export default function Footer() {
             </div>
 
             <div className="flex items-center justify-center pt-5">
-                <p className="text-xs text-(--text) opacity-75">© Fisiogamma S.n.c. di Arretosi Nicola & C. - Viale Matteotti, 3/B - 43039 - Salsomaggiore Terme (Parma) - P.IVA IT02020150344 - R.E.A. PR-204359</p>
+                <p className="text-xs text-center text-(--text) opacity-75">© Fisiogamma S.n.c. di Arretosi Nicola & C. - Viale Matteotti, 3/B - 43039 - Salsomaggiore Terme (Parma) - P.IVA IT02020150344 - R.E.A. PR-204359</p>
             </div>
 
         </div>

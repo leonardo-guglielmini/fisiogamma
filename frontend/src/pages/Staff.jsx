@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import { Pagination, Navigation, EffectCoverflow } from "swiper/modules"
 import { Link } from "react-router-dom";
 
-import GlobalContext from "../../contexts/GlobalContext";
+import GlobalContext from "../contexts/GlobalContext";
 
 export default function Staff() {
 

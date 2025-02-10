@@ -1,8 +1,9 @@
 import { useContext } from "react"
 import { useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 
-import GlobalContext from "../../contexts/GlobalContext"
+import GlobalContext from "../contexts/GlobalContext"
 
 export default function Employee() {
 
@@ -18,7 +19,7 @@ export default function Employee() {
                     <img src={`http://localhost:3000/${employee.image}`} alt={employee.slug} className="rounded-md shadow-md" />
                     <div className="pl-5">
                         <h1 className="text-3xl text-(--hover) font-bold mb-5 border-b border-(--hover) w-6/12">{employee.name} {employee.surname}</h1>
-                        <ReactMarkdown>{employee.bio}</ReactMarkdown>
+                        <ReactMarkdown rehypePlugins={[rehypeRaw]}>{employee.bio}</ReactMarkdown>
                     </div>
                 </div>
             }
