@@ -4,5 +4,4 @@ const servicesController = require("../controllers/servicesController")
 
 
 router.get("/", servicesController.index)
-router.get("/:id", servicesController.show)
 module.exports = router

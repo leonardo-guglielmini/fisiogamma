@@ -9,7 +9,6 @@ export default function NotFound() {
                 <p className="mb-5">Pagina non trovata</p>
                 <Link to="/" className="px-5 py-3 bg-(--accent) hover:bg-(--hover) text-white font-bold rounded-md transition duration:0.3 ease-in-out">Torna alla Homepage</Link>
             </div>
-
         </div>
     )
 }

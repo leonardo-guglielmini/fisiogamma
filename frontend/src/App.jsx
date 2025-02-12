@@ -47,9 +47,8 @@ function App() {
       try {
         const res = await axios.get('http://localhost:3000/api/staff');
         setStaff(res.data);
-        console.log(res.data);
       } catch (err) {
-        console.error(err);
+        console.error("Error fetching staff:", err);
       }
     };
 
@@ -61,9 +60,8 @@ function App() {
       try {
         const res = await axios.get("http://localhost:3000/api/images");
         setImages(res.data);
-        console.log("Fetched images:", res.data);
-      } catch (error) {
-        console.error("Error fetching images:", error);
+      } catch (err) {
+        console.error("Error fetching images:", err);
       }
     }
     fetchImages()
@@ -74,9 +72,8 @@ function App() {
       try {
         const res = await axios.get("http://localhost:3000/api/services");
         setServices(res.data);
-        console.log("Fetched services:", res.data);
-      } catch (error) {
-        console.error("Error fetching images:", error);
+      } catch (err) {
+        console.error("Error fetching services:", err);
       }
     }
     fetchServices()
