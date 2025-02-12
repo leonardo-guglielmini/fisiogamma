@@ -30,8 +30,6 @@ export default function Header() {
 
                             <NavLink to="/services" className={({ isActive }) => `py-3 px-5 bg-(--accent) rounded-md shadow-sm hover:bg-(--hover) transition duration-500 ease-in-out ${isActive ? "bg-(--hover)" : null}`}>Servizi</NavLink>
 
-                            <NavLink to="/staff" className={({ isActive }) => `py-3 px-5 bg-(--accent) rounded-md shadow-sm hover:bg-(--hover) transition duration-500 ease-in-out ${isActive ? "bg-(--hover)" : null}`}>Staff</NavLink>
-
                             <NavLink to="/contact" className={({ isActive }) => `py-3 px-5 bg-(--accent) rounded-md shadow-sm hover:bg-(--hover) transition duration-500 ease-in-out ${isActive ? "bg-(--hover)" : null}`}>Contatti</NavLink>
 
                         </div>
@@ -39,13 +37,13 @@ export default function Header() {
                         <AnimatePresence>
                             {sidebar &&
                                 <motion.div
-                                    className="w-4/12 fixed top-0 right-0 h-screen z-100"
+                                    className="w-5/12 fixed top-0 right-0 h-screen z-100"
                                     variants={fadeInOut}
                                     initial="hidden"
                                     animate="visible"
                                     exit="exit"
                                 >
-                                    <div className="xl:hidden flex flex-col bg-(--bg) shadow-lg gap-10 items-center pt-10 uppercase text-white font-bold h-full">
+                                    <div className="xl:hidden flex flex-col bg-(--bg) shadow-lg gap-7 items-center pt-10 uppercase text-white font-bold h-full">
                                         <IoIosCloseCircleOutline className="text-(--hover) text-2xl self-end mr-5" onClick={showSidebar} />
 
                                         <NavLink to="/" className={({ isActive }) => `w-full py-3 px-5 bg-(--accent) ml-5 rounded-l-md shadow-sm hover:bg-(--hover) transition duration-500 ease-in-out ${isActive ? "bg-(--hover)" : null}`}>Home</NavLink>

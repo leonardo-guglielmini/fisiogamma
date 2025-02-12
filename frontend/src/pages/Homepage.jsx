@@ -1,8 +1,9 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import GlobalContext from "../contexts/GlobalContext";
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Pagination, Autoplay, Navigation, EffectFade } from "swiper/modules"
 import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion"
 
 import "swiper/css"
 import "swiper/css/navigation";
@@ -19,7 +20,16 @@ import { SlArrowRightCircle } from "react-icons/sl";
 import style from '../assets/modules/Homepage.module.css'
 
 export default function Homepage() {
-    const { images, services } = useContext(GlobalContext);
+    const { images, services, staff, containerSize } = useContext(GlobalContext);
+    const [cardHover, setCardHover] = useState(false)
+
+    const changeStatusTrue = () => {
+        setCardHover(true)
+    }
+    const changeStatusFalse = () => {
+        setCardHover(false)
+    }
+
     return (
         <div className="shadow-lg pb-10">
             <section className={`${style.background} shadow-md shadow-(color:--hero)`}>
@@ -31,24 +41,54 @@ export default function Homepage() {
                     </Link>
                 </div>
             </section>
-            <section className={`container mx-auto pb-10 grid grid-cols-3 gap-3 xl:gap-10 mt-10 sm:-mt-25`}>
+            <section className={`${containerSize} pb-10 grid grid-cols-3 gap-3 xl:gap-10 mt-10 sm:-mt-25`}>
                 <a href="https://www.google.com/maps/place/Fisiogamma+S.N.C./@44.8172972,9.9778473,17z/data=!3m1!4b1!4m6!3m5!1s0x47808a7a44a0fbd7:0x399e536b5c9ac381!8m2!3d44.8172934!4d9.9804222!16s%2Fg%2F1tjffpty?entry=ttu&g_ep=EgoyMDI1MDIwMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center pb-3 bg-(--bg) rounded-md shadow-sm hover:-translate-y-10 transition duration:500 ease-in-out cursor-pointer">
                     <img src={stock_1} alt="img-card-1" className="max-w-8/12" />
                     <h3 className="uppercase text-(--hover) font-bold text-lg md:text-2xl pb-2">Il centro</h3>
                     <p className="text-center flex-grow text-sm sm:text-md">Scopri un centro altamente attrezzato a <span className="font-bold">Salsomaggiore Terme (Parma)</span></p>
                 </a>
-                <Link to="/staff" className="flex flex-col items-center pb-3 bg-(--bg) rounded-md shadow-sm hover:-translate-y-10 transition duration:500 ease-in-out cursor-pointer">
-                    <img src={stock_2} alt="img-card-2" className="max-w-8/12" />
-                    <h3 className="uppercase text-(--hover) font-bold text-lg md:text-2xl pb-2">Lo staff</h3>
-                    <p className="text-center flex-grow text-sm sm:text-md">Affidati ad uno staff con una esperienza pluri-decennale</p>
-                </Link>
+                <div onMouseEnter={changeStatusTrue} onMouseLeave={changeStatusFalse} className="hover:-translate-y-10 transition duration:500 ease-in-out relative h-full pb-3 bg-(--bg) rounded-md shadow-sm">
+
+                    <AnimatePresence mode="wait">
+                        {!cardHover ?
+                            <motion.div
+                                key="cardDefault"
+                                initial={{ opacity: 1 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.2 }}
+                                className="absolute top-0 left-0 w-full h-full flex flex-col items-center">
+                                <img src={stock_2} alt="img-card-2" className="max-w-8/12" />
+                                <h3 className="uppercase text-(--hover) font-bold text-lg md:text-2xl pb-2">Lo staff</h3>
+                                <p className="text-center flex-grow text-sm sm:text-md">Affidati ad uno staff con una esperienza pluri-decennale</p>
+                            </motion.div> :
+                            <motion.div
+                                key="cardHover"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.2 }}
+                                className="absolute top-0 left-0 w-full h-full flex flex-col items-center">
+                                <h3 className="uppercase text-(--hover) font-bold text-lg md:text-2xl pt-3">Lo staff</h3>
+                                <ul>
+                                    {staff.map((employee) =>
+                                        <Link to={`/staff/${employee.slug}`} key={employee.id}>
+                                            <li className="px-5 py-3 bg-(--accent) rounded-md my-3 text-white font-bold hover:bg-(--hover) cursor-pointer"><h1>{employee.name} {employee.surname}</h1></li>
+                                        </Link>
+                                    )}
+                                </ul>
+
+                            </motion.div>
+                        }
+                    </AnimatePresence>
+                </div>
                 <Link to="/services" className="flex flex-col items-center pb-3 bg-(--bg) rounded-md shadow-sm hover:-translate-y-10 transition duration:500 ease-in-out cursor-pointer">
                     <img src={stock_3} alt="img-card-3" className="max-w-8/12" />
                     <h3 className="uppercase text-(--hover) font-bold text-lg md:text-2xl pb-2">Servizi</h3>
                     <p className="text-center flex-grow text-sm sm:text-md">Una vasta gamma di servizi per la cura della tua salute</p>
                 </Link>
             </section>
-            <section className={`container mx-auto`}>
+            <section className={`${containerSize}`}>
                 <h2 className="text-2xl sm:text-4xl text-(--hover) font-bold pt-10 pb-5">Servizi offerti nel nostro poliambulatorio</h2>
                 <div className="grid grid-cols-2 sm:grid-cols-3 pb-10 items-center">
                     <div>
@@ -84,7 +124,7 @@ export default function Homepage() {
                     </div>
                 </div>
             </section >
-            <section className={`container mx-auto`}>
+            <section className={`${containerSize}`}>
                 <Swiper
                     modules={[Autoplay, Pagination, Navigation, EffectFade]}
                     slidesPerView={1}

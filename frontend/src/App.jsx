@@ -9,7 +9,6 @@ import Default from "./layouts/Default"
 import Blank from "./layouts/Blank"
 
 import Homepage from "./pages/Homepage"
-import Staff from "./pages/Staff"
 import Employee from "./pages/Employee"
 import Services from "./pages/Services"
 import Contact from "./pages/Contact"
@@ -24,7 +23,6 @@ const AnimatedRoutes = () => {
       <Routes location={location} key={location.pathname}>
         <Route element={<Default />}>
           <Route path="/" element={<Homepage />} />
-          <Route path="/staff" element={<Staff />} />
           <Route path="/staff/:slug" element={<Employee />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />

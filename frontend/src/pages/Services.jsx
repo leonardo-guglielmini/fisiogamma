@@ -57,9 +57,9 @@ export default function Services() {
         exit: { opacity: 0, y: 20, transition: { duration: 0.2 } }
     }
 
-    const { services } = useContext(GlobalContext);
+    const { services, containerSize } = useContext(GlobalContext);
     return (
-        <div className={`container mx-auto flex flex-col gap-5 py-10`}>
+        <div className={`${containerSize} flex flex-col gap-5 py-10`}>
             <div className="justify-end gap-5 hidden xl:flex">
                 <button onClick={() => showManuMedica()} className={`${(manuMedica && !all) ? "bg-(--hover)" : "bg-(--accent)"} py-3 px-5 text-white bg-(--accent) font-bold rounded-md shadow-lg cursor-pointer transition duration-500 ease-in-out`}>Manu Medica</button>
                 <button onClick={() => showMedicinaFisica()} className={`${(medicinaFisica && !all) ? "bg-(--hover)" : "bg-(--accent)"} py-3 px-5 text-white bg-(--accent) font-bold rounded-md shadow-lg cursor-pointer transition duration-500 ease-in-out`}>Medicina Fisica</button>
