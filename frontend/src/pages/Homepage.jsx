@@ -41,7 +41,7 @@ export default function Homepage() {
                     </Link>
                 </div>
             </section>
-            <section className={`${containerSize} pb-10 grid grid-cols-3 gap-3 xl:gap-10 mt-10 sm:-mt-25`}>
+            <section className={`${containerSize} pb-10 grid grid-cols-3 gap-3 xl:gap-10 mt-10 sm:-mt-35 mb-7`}>
                 <a href="https://www.google.com/maps/place/Fisiogamma+S.N.C./@44.8172972,9.9778473,17z/data=!3m1!4b1!4m6!3m5!1s0x47808a7a44a0fbd7:0x399e536b5c9ac381!8m2!3d44.8172934!4d9.9804222!16s%2Fg%2F1tjffpty?entry=ttu&g_ep=EgoyMDI1MDIwMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center pb-3 bg-(--bg) rounded-md shadow-sm hover:-translate-y-10 transition duration:500 ease-in-out cursor-pointer">
                     <img src={stock_1} alt="img-card-1" className="max-w-8/12" />
                     <h3 className="uppercase text-(--hover) font-bold text-lg md:text-2xl pb-2">Il centro</h3>

@@ -40,7 +40,7 @@ function App() {
   const [staff, setStaff] = useState([])
   const [images, setImages] = useState([]);
   const [services, setServices] = useState([]);
-  const containerSize = "max-w-full sm:max-w-6/12 md:max-w-6/12 lg:max-w-6/12 xl:max-w-8/12 2xl:max-w-8/12 mx-auto";
+  const containerSize = "max-w-screen sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl mx-auto";
 
   useEffect(() => {
     async function fetchStaff() {

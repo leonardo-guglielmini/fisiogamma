@@ -50,8 +50,6 @@ export default function Header() {
 
                                         <NavLink to="/services" className={({ isActive }) => `w-full py-3 px-5 bg-(--accent) ml-5 rounded-l-md shadow-sm hover:bg-(--hover) transition duration-500 ease-in-out ${isActive ? "bg-(--hover)" : null}`}>Servizi</NavLink>
 
-                                        <NavLink to="/staff" className={({ isActive }) => `w-full py-3 px-5 bg-(--accent) ml-5 rounded-l-md shadow-sm hover:bg-(--hover) transition duration-500 ease-in-out ${isActive ? "bg-(--hover)" : null}`}>Staff</NavLink>
-
                                         <NavLink to="/contact" className={({ isActive }) => `w-full py-3 px-5 bg-(--accent) ml-5 rounded-l-md shadow-sm hover:bg-(--hover) transition duration-500 ease-in-out ${isActive ? "bg-(--hover)" : null}`}>Contatti</NavLink>
                                     </div>
                                 </motion.div>
